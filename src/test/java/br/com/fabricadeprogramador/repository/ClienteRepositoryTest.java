@@ -13,7 +13,7 @@ import br.com.fabricadeprogramador.model.Cliente;
 public class ClienteRepositoryTest {
 
 	@Autowired
-	private ClienteRepostitory clienteRepostitory;
+	private ClienteRepository clienteRepostitory;
 	
 	@Test
 	public void testSave(){
@@ -22,10 +22,6 @@ public class ClienteRepositoryTest {
 		c.setEmail("jao@htcursos.com");
 		
 		clienteRepostitory.save(c);
-		
-		//Vilauba - 99987 9071 - chefe da investigacaon
-		//9 9288 9506 
-		
 		
 	}
 }

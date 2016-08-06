@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.fabricadeprogramador.model.Cliente;
-import br.com.fabricadeprogramador.repository.ClienteRepostitory;
+import br.com.fabricadeprogramador.repository.ClienteRepository;
 
 @Service
 public class ClienteService {
 	@Autowired
-	private ClienteRepostitory clienteRepostitory;
+	private ClienteRepository clienteRepository;
 	
 	public Cliente salvar(Cliente cliente){
-		return clienteRepostitory.save(cliente);
+		return clienteRepository.save(cliente);
 	}
 }
