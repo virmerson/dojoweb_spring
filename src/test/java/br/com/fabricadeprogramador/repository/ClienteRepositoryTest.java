@@ -23,5 +23,9 @@ public class ClienteRepositoryTest {
 		
 		clienteRepostitory.save(c);
 		
+		//Vilauba - 99987 9071 - chefe da investigacaon
+		//9 9288 9506 
+		
+		
 	}
 }
