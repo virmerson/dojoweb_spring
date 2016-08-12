@@ -18,6 +18,8 @@ public class Cliente {
 	}
 	public Cliente() {
 	}
+	
+	//Getters and Setters
 	public Integer getId() {
 		return id;
 	}
