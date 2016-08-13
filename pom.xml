@@ -11,8 +11,6 @@
 	<name>dojo</name>
 	<description>DOJO  project for Spring Boot</description>
 
-	<!-- <parent> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-parent</artifactId> 
-		<version>1.4.0.RELEASE</version> <relativePath /> </parent> -->
 
 	<parent>
 		<groupId>org.joinfaces</groupId>
@@ -32,8 +30,7 @@
 
 		<dependency>
 			<groupId>org.joinfaces</groupId>
-			<!-- <artifactId>jsf-spring-boot-starter</artifactId> -->
-			<artifactId>jsf-myfaces-spring-boot-starter</artifactId>
+			<artifactId>jsf-spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,20 +43,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
+	
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-devtools</artifactId> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
