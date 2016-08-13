@@ -14,10 +14,7 @@ import org.springframework.web.context.ServletContextAware;
 /**
  * @author Virmerson
  *
- *         Para fazermos funcionar Spring Boot sem web.xml ou faces-config.xml
- *         precisamos forçar o carregamento load do arquivo de configuracoa via
- *         init parameter no ServletContext. Um jeito facil é implementar a
- *         interface ServletContextAware:
+ *        
  */
 
 @SpringBootApplication
@@ -34,13 +31,20 @@ public class DojoApplication implements ServletContextAware {
 
 	@Bean
 	public ServletRegistrationBean facesServletRegistration() {
+		//Registre o Servlet do JSF para responder .XHTML e .JSF
 		ServletRegistrationBean registration = new ServletRegistrationBean(new FacesServlet(), "*.xhtml", "*.jsf");
 		registration.setLoadOnStartup(1);
 		return registration;
 	}
+	
+	/** Para fazermos funcionar Spring Boot sem web.xml ou faces-config.xml
+	 *         precisamos forçar o carregamento load do arquivo de configuracoa via
+	 *         init parameter no ServletContext. Um jeito facil é implementar a
+	 *         interface ServletContextAware: **/
 
 	@Override
 	public void setServletContext(ServletContext servletContext) {
+		//Configure Automático
 		servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
 	}
 
