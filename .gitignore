@@ -6,3 +6,5 @@ bin/
 target/
 mvnw
 mvnw.cmd
+.idea/*
+dojo.iml

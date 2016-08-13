@@ -2,8 +2,8 @@ package br.com.fabricadeprogramador.view;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +11,7 @@ import br.com.fabricadeprogramador.model.Cliente;
 import br.com.fabricadeprogramador.service.ClienteService;
 
 
-@ManagedBean
+@Named
 @ViewScoped
 public class ClienteController implements Serializable {
 	private static final long serialVersionUID = -6517721820588630887L;
