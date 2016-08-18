@@ -13,6 +13,12 @@
 	<h:body>
 		<h:form id="frmCliente">
 			Nome: <h:inputText value="#{clienteController.cliente.nome}" />
+			
+			Estado: 
+			<h:selectOneMenu value="#{clienteController.cliente.estado}" converter="#{estadoConverter}">
+					<f:selectItem value="#{null}"  noSelectionOption="true" itemLabel=".: Selecione :."/>
+					<f:selectItems value="#{estadoController.estados}"  itemLabel="#{e.uf}" var="e"/> 
+			</h:selectOneMenu>
 			Email:<h:inputText value="#{clienteController.cliente.email}" />
 
 			<h:commandButton action="#{clienteController.salvar}"
@@ -40,7 +46,11 @@
 					<f:facet name="header">E-mail</f:facet>
 						#{c.email}
 					</h:column>
-
+					
+					<h:column>
+					<f:facet name="header">UF</f:facet>
+						#{c.estado.uf}
+					</h:column>
 				<h:column>
 					<h:commandLink value="Editar"
 						action="#{clienteController.editar(c)}">

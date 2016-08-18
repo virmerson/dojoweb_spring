@@ -3,6 +3,8 @@ package br.com.fabricadeprogramador.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
@@ -12,6 +14,9 @@ public class Cliente {
 	private Integer id;
 	private String nome;
 	private String email;
+	@ManyToOne
+	@JoinColumn
+	private Estado estado;
 	
 	public Cliente(String nome, String email) {
 		this.nome = nome;
@@ -39,5 +44,10 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	public Estado getEstado() {
+		return estado;
+	}
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 }
