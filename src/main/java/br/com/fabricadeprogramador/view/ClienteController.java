@@ -1,7 +1,9 @@
 package br.com.fabricadeprogramador.view;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
@@ -17,22 +19,37 @@ public class ClienteController implements Serializable {
 	private static final long serialVersionUID = -6517721820588630887L;
 
 	@Autowired
-	ClienteService clienteService;
-	private String nome = "Jão da Silva";
+	private ClienteService clienteService;
+	private Cliente cliente;
+	private List<Cliente> clientes;
+	
+	
+	@PostConstruct
+	public void init() {
+		cliente = new Cliente();
+		clientes = clienteService.buscarTodos();
+	}
 
 	public void salvar() {
-		Cliente c = new Cliente();
-		c.setNome(nome);
-
-		clienteService.salvar(c);
+		clienteService.salvar(cliente);
+		clientes.add(cliente);
+		cliente =  new Cliente();
 	}
 
-	public String getNome() {
-		return nome;
+	public List<Cliente> getClientes() {
+		return clientes;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 }

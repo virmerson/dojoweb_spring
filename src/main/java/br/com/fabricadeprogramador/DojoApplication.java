@@ -9,7 +9,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class DojoApplication 
     extends SpringBootServletInitializer
 {
-
+	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(DojoApplication.class);

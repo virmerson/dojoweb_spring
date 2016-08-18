@@ -15,10 +15,30 @@
 		<h:outputStylesheet name="starter.css" />
 	</h:head>
 	<h:body>
-		<h:form>
-			<h:inputText value="#{clienteController.nome}" /> 
-        	 <h:commandButton actionListener="#{clienteController.salvar}"
-				value="Salvar" />
+		<h:form id="frmCliente">
+			Nome: <h:inputText value="#{clienteController.cliente.nome}" />
+			Email:<h:inputText value="#{clienteController.cliente.email}" />
+
+			<h:commandButton action="#{clienteController.salvar}"
+				value="Salvar :D">
+				 <f:ajax execute="frmCliente" render="frmCliente:tbClientes" />
+			</h:commandButton>
+
+			<h:dataTable id="tbClientes" value="#{clienteController.clientes}" var="c">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+						#{c.id}
+					</h:column>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+						#{c.nome}
+					</h:column>
+				<h:column>
+					<f:facet name="header">E-mail</f:facet>
+						#{c.email}
+					</h:column>
+			</h:dataTable>
+
 		</h:form>
 	</h:body>
 
