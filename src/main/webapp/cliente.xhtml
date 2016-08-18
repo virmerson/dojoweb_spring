@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view contentType="text/html">
 	<h:head>
-		<title>.:: Curso JSF com Spring ::.</title>
+		<title>.:: Curso JSF com Spring Boot::.</title>
 		<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
 		<link href="#{resource['images/favicon.ico']}" rel="shortcut icon" />
 		<h:outputStylesheet name="#{resource[style.css]}" />
@@ -45,6 +45,11 @@
 					<h:commandLink value="Editar"
 						action="#{clienteController.editar(c)}">
 						<f:ajax render="frmCliente" />
+					</h:commandLink>
+					
+					<h:commandLink value="Excluir"
+						action="#{clienteController.excluir(c)}" onclick="return confirm('Tem Certeza que deseja excluir?')">
+						<f:ajax render="frmCliente:tbClientes" />
 					</h:commandLink>
 
 				</h:column>

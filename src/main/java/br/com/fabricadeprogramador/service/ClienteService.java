@@ -20,4 +20,8 @@ public class ClienteService {
 	public List<Cliente> buscarTodos() {
 		return clienteRepository.findAll();
 	}
+
+	public void excluir(Cliente cliente) {
+		clienteRepository.delete(cliente);
+	}
 }

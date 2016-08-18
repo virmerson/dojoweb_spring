@@ -46,6 +46,11 @@ public class ClienteController implements Serializable {
 		this.cliente = new Cliente();
 		modoEdicao = false;
 	}
+	
+	public void excluir(Cliente cliente) {
+		clienteService.excluir(cliente);
+		clientes.remove(cliente);
+	}
 
 	public List<Cliente> getClientes() {
 		return clientes;
