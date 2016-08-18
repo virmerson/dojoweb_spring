@@ -12,9 +12,10 @@ public class Cliente {
 	private Integer id;
 	private String nome;
 	private String email;
+	
 	public Cliente(String nome, String email) {
-		setNome(nome);
-		setEmail(email);
+		this.nome = nome;
+		this.email = email;
 	}
 	public Cliente() {
 	}

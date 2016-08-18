@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.fabricadeprogramador.model.Cliente;
 import br.com.fabricadeprogramador.service.ClienteService;
 
-
 @Named
 @ViewScoped
 public class ClienteController implements Serializable {
@@ -22,8 +21,8 @@ public class ClienteController implements Serializable {
 	private ClienteService clienteService;
 	private Cliente cliente;
 	private List<Cliente> clientes;
-	
-	
+	private boolean modoEdicao = false;
+
 	@PostConstruct
 	public void init() {
 		cliente = new Cliente();
@@ -32,8 +31,20 @@ public class ClienteController implements Serializable {
 
 	public void salvar() {
 		clienteService.salvar(cliente);
-		clientes.add(cliente);
-		cliente =  new Cliente();
+		if (!modoEdicao)
+			clientes.add(cliente);
+		cliente = new Cliente();
+		modoEdicao = false;
+	}
+
+	public void editar(Cliente cliente) {
+		this.cliente = cliente;
+		modoEdicao = true;
+	}
+
+	public void cancelar() {
+		this.cliente = new Cliente();
+		modoEdicao = false;
 	}
 
 	public List<Cliente> getClientes() {
@@ -50,6 +61,14 @@ public class ClienteController implements Serializable {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public boolean isModoEdicao() {
+		return modoEdicao;
+	}
+
+	public void setModoEdicao(boolean modoEdicao) {
+		this.modoEdicao = modoEdicao;
 	}
 
 }

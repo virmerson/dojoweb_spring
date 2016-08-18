@@ -16,11 +16,18 @@
 			Email:<h:inputText value="#{clienteController.cliente.email}" />
 
 			<h:commandButton action="#{clienteController.salvar}"
-				value="Salvar :D">
-				 <f:ajax execute="frmCliente" render="frmCliente:tbClientes" />
+				value="Salvar">
+				<f:ajax execute="frmCliente" render="frmCliente" />
 			</h:commandButton>
 
-			<h:dataTable id="tbClientes" value="#{clienteController.clientes}" var="c">
+			<h:commandButton action="#{clienteController.cancelar}"
+				value="Cancelar" rendered="#{clienteController.modoEdicao}">
+				<f:ajax render="frmCliente" />
+			</h:commandButton>
+
+
+			<h:dataTable id="tbClientes" value="#{clienteController.clientes}"
+				var="c">
 				<h:column>
 					<f:facet name="header">ID</f:facet>
 						#{c.id}
@@ -33,6 +40,16 @@
 					<f:facet name="header">E-mail</f:facet>
 						#{c.email}
 					</h:column>
+
+				<h:column>
+					<h:commandLink value="Editar"
+						action="#{clienteController.editar(c)}">
+						<f:ajax render="frmCliente" />
+					</h:commandLink>
+
+				</h:column>
+
+
 			</h:dataTable>
 
 		</h:form>
